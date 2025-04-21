@@ -2,14 +2,21 @@ import React, { useState } from 'react';
 import PortfolioFilter from '../components/PortfolioFilter';
 import Foot from '../components/Footer';
 import Navbar from "../components/Navbar";
-
+import bookmark from '../assets/bookmark.jpg';
+import butterfly from '../assets/butterfly box.jpg';
+import dragon from '../assets/dragon.png';
+import gadget from '../assets/gadget.png';
+import pendant from '../assets/pendant.jpg';
+import timestone from '../assets/timestone.jpg';
+import headphone from '../assets/Screenshot 2025-04-21 184750.png'
 const mockProjects = [
-  { id: 1, type: 'Mechanical Parts', title: 'Drone Realease Mechanism', img: 'https://via.placeholder.com/300x200' },
-  { id: 2, type: 'Artistic Models', title: 'Butterfly Box', img: 'https://via.placeholder.com/300x200' },
-  { id: 3, type: 'Gadgets', title: 'Eye of Agamotto (Replica)', img: 'https://via.placeholder.com/300x200' },
-  { id: 4, type: 'Mechanical Parts', title: 'Scorpio Pendant', img: 'https://via.placeholder.com/300x200' },
-  { id: 5, type: 'Artistic Models', title: 'Laptop/Tv Gear', img: 'https://via.placeholder.com/300x200' },
-  { id: 6, type: 'Gadgets', title: 'Bookmark', img: 'https://via.placeholder.com/300x200' },
+  { id: 1, type: 'Mechanical Parts', title: 'Drone Realease Mechanism', img: gadget},
+  { id: 2, type: 'Artistic Models', title: 'Butterfly Box', img: butterfly },
+  { id: 3, type: 'Artistic Models', title: 'Eye of Agamotto (Replica)', img: timestone },
+  { id: 4, type: 'Artistic Models', title: 'Scorpio Pendant', img: pendant },
+  { id: 5, type: 'Artistic Models', title: 'Laptop/Tv Gear', img: dragon },
+  { id: 6, type: 'Gadgets', title: 'Bookmark', img: bookmark },
+  { id: 7, type: 'Gadgets', title: 'Headphone Holder', img : headphone},
   ];
 
 const Portfolio = () => {

@@ -110,7 +110,7 @@ const Home = () => {
           <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:shadow-xl">
             <div className="h-48 bg-gray-200 overflow-hidden">
               <img
-                src="https://images.pexels.com/photos/5726837/pexels-photo-5726837.jpeg"
+                src="src\assets\gadget.png"
                 alt="Mechanical Parts"
                 className="w-full h-full object-cover"
               />
@@ -136,7 +136,7 @@ const Home = () => {
           <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:shadow-xl">
             <div className="h-48 bg-gray-200 overflow-hidden">
               <img
-                src="https://images.pexels.com/photos/2683772/pexels-photo-2683772.jpeg"
+                src="src\assets\artistic.jpg"
                 alt="Artistic Models"
                 className="w-full h-full object-cover"
               />
@@ -162,7 +162,7 @@ const Home = () => {
           <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:shadow-xl">
             <div className="h-48 bg-gray-200 overflow-hidden">
               <img
-                src="https://images.pexels.com/photos/4195509/pexels-photo-4195509.jpeg"
+                src="src\assets\Screenshot 2025-04-21 184750.png"
                 alt="Gadgets"
                 className="w-full h-full object-cover"
               />
