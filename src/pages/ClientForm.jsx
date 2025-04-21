@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { postBrief } from "../api/api";
 import Navbar from "../components/Navbar";
 import Foot from "../components/Footer";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify"; //npm install react-toastify
 import "react-toastify/dist/ReactToastify.css";
 
 const ClientForm = () => {
@@ -21,7 +21,7 @@ const ClientForm = () => {
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const validate = () => {
+  const validate = () => { //ensures form is filled correctly
     const { name, email, desc, deadline } = form;
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!name || !re.test(email) || desc.length < 20) return false;
@@ -65,8 +65,6 @@ const ClientForm = () => {
   return (
     <div className="w-full">
       <Navbar />
-
-      {/* Header */}
       <div className="w-full bg-gradient-to-r from-emerald-800 to-teal-700 text-white py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
@@ -160,7 +158,7 @@ const ClientForm = () => {
             </button>
             <ToastContainer position="top-center" />
 
-            {/* Post-submission actions */}
+            {/* show buttons if submission is done*/}
             {submitted && (
               <div className="mt-6 flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 justify-center">
                 <button
@@ -184,10 +182,10 @@ Budget: ${form.budget || "Not specified"}
 Could you please provide an update?
                     `.trim();
                     const encodedMessage = encodeURIComponent(formattedMessage);
-                    const phoneNumber = "1234567890";
+                    const phoneNumber = "+918169891989";
                     window.open(
                       `https://wa.me/${phoneNumber}?text=${encodedMessage}`,
-                      "_blank"
+                      "_blank"  //sends wsap message to the number for the creation
                     );
                   }}
                   className="bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700 transition"

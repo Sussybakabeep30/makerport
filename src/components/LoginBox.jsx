@@ -6,7 +6,7 @@ const LoginBox = () => {
   const [input, setInput] = useState("");
 
   const handleLogin = () => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  //regex 
     if (re.test(input)) login(input);
     else alert("Please enter a valid email.");
   };

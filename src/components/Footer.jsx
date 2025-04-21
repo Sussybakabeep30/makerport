@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-white border-t border-gray-200 mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-gray-700">
-        {/* Logo + Description */}
+        
         <div>
           <div className="flex items-center mb-4">
             <span className="text-blue-600 text-xl sm:text-2xl">🖨️</span>
@@ -19,7 +19,7 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Quick Links */}
+        
         <div>
           <h3 className="text-sm font-semibold text-gray-900 mb-4">
             Quick Links
@@ -81,7 +81,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom bar */}
       <div className="border-t border-gray-200 text-center py-4 sm:py-6 text-xs sm:text-sm text-gray-400">
         &copy; {new Date().getFullYear()} MakerPort. All rights reserved.
       </div>

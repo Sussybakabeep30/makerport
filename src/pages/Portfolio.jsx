@@ -46,7 +46,7 @@ const Portfolio = () => {
     <div className="bg-white min-h-screen">
       <Navbar />
 
-      {/* Header */}
+      
       <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white py-8 sm:py-12 px-4 sm:px-8 md:px-16">
         <h1 className="text-3xl sm:text-4xl font-bold mb-2 sm:mb-3">
           Portfolio
@@ -58,7 +58,7 @@ const Portfolio = () => {
         </p>
       </div>
 
-      {/* Filters using PortfolioFilter component */}
+      
       <div className="flex justify-center mt-4 sm:mt-6 px-4 sm:px-6">
         <PortfolioFilter
           categories={categories}
@@ -71,12 +71,12 @@ const Portfolio = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-4 sm:px-6 py-6 sm:py-10 max-w-screen-xl mx-auto">
         {filtered.map((p) => (
           <div
-            key={p.id}
+            key={p.id} //take id
             className="bg-white rounded-xl overflow-hidden shadow hover:shadow-lg transition"
           >
             <img
-              src={p.img}
-              alt={p.title}
+              src={p.img} //take image source
+              alt={p.title} //take the title
               className="w-full h-36 sm:h-48 object-cover"
             />
             <div className="p-3 sm:p-4 text-center">

@@ -3,9 +3,6 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { UserProvider } from './context/UserContext';
 import Loading from './components/Loading';
 
-
-
-
 const Home       = lazy(() => import('./pages/Home'));
 const Portfolio  = lazy(() => import('./pages/Portfolio'));
 const ClientForm = lazy(() => import('./pages/ClientForm'));

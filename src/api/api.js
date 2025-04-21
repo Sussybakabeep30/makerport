@@ -1,4 +1,4 @@
-const BASE = "https://68062528ca467c15be6b564d.mockapi.io/briefs"; // Replace with your MockAPI endpoint
+const BASE = "https://68062528ca467c15be6b564d.mockapi.io/briefs"; //used mockAPI
 
 export const getProjects = (userEmail) => {
   const url = userEmail ? `${BASE}?email=${userEmail}` : BASE;

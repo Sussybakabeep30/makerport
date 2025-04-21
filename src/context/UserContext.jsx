@@ -6,7 +6,7 @@ export const UserProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [email, setEmail] = useState("");
 
-  // On mount, auto-login if email exists in localStorage
+  //loading from localstorage if exists
   useEffect(() => {
     const saved = localStorage.getItem("makerport_email");
     if (saved) {

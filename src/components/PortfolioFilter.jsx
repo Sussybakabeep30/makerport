@@ -13,8 +13,8 @@ const PortfolioFilter = ({ categories, active, onChange }) => (
               : "bg-white text-gray-900 border border-gray-300 hover:bg-gray-100"
           }`}
         style={{
-          backgroundColor: active === cat ? "#2563eb" : "#fff", // force blue/white
-          color: active === cat ? "#fff" : "#111827", // force text color
+          backgroundColor: active === cat ? "#2563eb" : "#fff", 
+          color: active === cat ? "#fff" : "#111827", 
         }}
       >
         {cat}

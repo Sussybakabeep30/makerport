@@ -58,13 +58,13 @@ const Home = () => {
                     <div className="space-y-3 sm:space-y-4">
                       <button
                         onClick={() => {
-                          // Format the message for WhatsApp
+                          
                           const formattedMessage = `Hello! I'd like to check the status of my 3D printing project.`;
 
                           const encodedMessage =
                             encodeURIComponent(formattedMessage);
 
-                          const phoneNumber = "+918169891989"; // WhatsApp number with country code
+                          const phoneNumber = "+918169891989"; 
 
                           //redirection
                           window.open(
@@ -178,7 +178,7 @@ const Home = () => {
                 className="inline-flex items-center text-primary-600 hover:text-primary-800 font-medium text-sm sm:text-base"
               >
                 View gadget projects
-                <span className="ml-1">→</span>
+                <span className="ml-1">→</span> 
               </a>
             </div>
           </div>

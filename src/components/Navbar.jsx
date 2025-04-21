@@ -14,6 +14,7 @@ function Navbar() {
             viewBox="0 0 24 24"
             fill="currentColor"
           >
+            {/* logo */}
             <path d="M19 7h-1V2H6v5H5c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM8 4h8v3H8V4zm11 14H5V9h14v9z" />
             <path d="M8 14h8v2H8z" />
           </svg>
@@ -22,7 +23,7 @@ function Navbar() {
           </span>
         </div>
 
-        {/* Mobile menu button */}
+        
         <button
           className="md:hidden flex items-center p-2"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -38,14 +39,15 @@ function Navbar() {
             stroke="currentColor"
           >
             {isMenuOpen ? (
-              <path d="M6 18L18 6M6 6l12 12" />
+              // logo svg
+              <path d="M6 18L18 6M6 6l12 12" /> 
             ) : (
               <path d="M4 6h16M4 12h16M4 18h16" />
             )}
           </svg>
         </button>
 
-        {/* Desktop navigation */}
+        {/* Menu */}
         <nav className="hidden md:flex items-center space-x-8">
           <a
             href="/"

@@ -37,22 +37,22 @@ h1 {
   line-height: 1.1;
 }
 
-/* Updated button styles to match your portfolio filter */
+
 button {
-  border-radius: 9999px; /* full rounded corners */
-  border: 1px solid #e5e7eb; /* light gray border */
-  padding: 0.5rem 1.5rem; /* py-2 px-6 equivalent */
+  border-radius: 9999px; 
+  border: 1px solid #e5e7eb; 
+  padding: 0.5rem 1.5rem; 
   font-size: 1rem;
-  font-weight: 600; /* semibold */
+  font-weight: 600; 
   font-family: inherit;
   background-color: #ffffff;
-  color: #111827; /* dark gray text */
+  color: #111827; 
   cursor: pointer;
   transition: all 0.2s;
 }
 
 button:hover {
-  background-color: #f3f4f6; /* light gray hover */
+  background-color: #f3f4f6; 
   border-color: #d1d5db;
 }
 
@@ -61,16 +61,16 @@ button:focus-visible {
   outline: none;
 }
 
-/* Primary button variant */
+
 button.primary {
-  background-color: #2563eb; /* blue-600 */
+  background-color: #2563eb;
   color: #ffffff;
   border: 2px solid #ffffff;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 button.primary:hover {
-  background-color: #1d4ed8; /* blue-700 */
+  background-color: #1d4ed8; 
   border-color: #f9fafb;
 }
 
