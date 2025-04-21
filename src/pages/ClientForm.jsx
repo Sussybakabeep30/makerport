@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { postBrief } from "../api/api";
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Foot from "../components/Footer";
 import { ToastContainer, toast } from "react-toastify"; //npm install react-toastify
@@ -21,7 +22,8 @@ const ClientForm = () => {
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const validate = () => { //ensures form is filled correctly
+  const validate = () => {
+    //ensures form is filled correctly
     const { name, email, desc, deadline } = form;
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!name || !re.test(email) || desc.length < 20) return false;
@@ -161,19 +163,18 @@ const ClientForm = () => {
             {/* show buttons if submission is done*/}
             {submitted && (
               <div className="mt-6 flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 justify-center">
-                <button
-                  onClick={() => (window.location.href = "/")}
-                  className="bg-emerald-600 text-white py-2 px-4 rounded hover:bg-emerald-700 transition"
+                <Link
+                  to="/"
+                  className="bg-emerald-600 text-white py-2 px-4 rounded text-center hover:bg-emerald-700 transition"
                 >
                   Go Back to Home
-                </button>
-                <button
-                  onClick={() => (window.location.href = "/MyRequests")}
-                  className="bg-emerald-600 text-white py-2 px-4 rounded hover:bg-emerald-700 transition"
+                </Link>
+                <Link
+                  to="/myrequests"
+                  className="bg-emerald-600 text-white py-2 px-4 rounded text-center hover:bg-emerald-700 transition"
                 >
                   Check your requests
-                </button>
-                
+                </Link>
               </div>
             )}
           </form>

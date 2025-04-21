@@ -5,9 +5,8 @@ import Foot from "../components/Footer";
 import Navbar from "../components/Navbar";
 import gadget from "../assets/gadget.png";
 import headphone from "../assets/Screenshot 2025-04-21 184750.png";
-import art from "../assets/artistic.jpg"
-
-
+import art from "../assets/artistic.jpg";
+import { Link } from "react-router-dom";  
 const Home = () => {
   const { isLoggedIn, email, logout } = useUser();
 
@@ -28,19 +27,19 @@ const Home = () => {
                   models, and prototypes.
                 </p>
                 <div className="flex flex-wrap gap-3 sm:gap-4">
-                  <a
-                    href="/portfolio"
+                  <Link
+                    to="/portfolio"
                     className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white text-primary-800 hover:bg-orange-500 font-semibold rounded-md hover:bg-primary-50 transition-colors text-sm sm:text-base"
                   >
                     View my work
                     <span className="ml-2">→</span>
-                  </a>
-                  <a
-                    href="/client-form"
+                  </Link>
+                  <Link
+                    to="/client-form"
                     className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white text-primary-800 hover:bg-orange-500 font-semibold rounded-md hover:bg-primary-50 transition-colors text-sm sm:text-base"
                   >
                     Start a project
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -62,7 +61,6 @@ const Home = () => {
                     <div className="space-y-3 sm:space-y-4">
                       <button
                         onClick={() => {
-                          
                           const formattedMessage = `Hello! I'd like to check the status of my 3D printing project.`;
 
                           const encodedMessage =
@@ -112,7 +110,7 @@ const Home = () => {
           <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:shadow-xl">
             <div className="h-40 sm:h-48 bg-gray-200 overflow-hidden">
               <img
-                src= {gadget}
+                src={gadget}
                 alt="Mechanical Parts"
                 className="w-full h-full object-cover"
               />
@@ -125,13 +123,13 @@ const Home = () => {
                 Precise, functional components for various applications. From
                 replacement parts to custom-designed mechanisms.
               </p>
-              <a
-                href="/portfolio"
+              <Link
+                to="/portfolio"
                 className="inline-flex items-center text-primary-600 hover:text-primary-800 font-medium text-sm sm:text-base"
               >
                 View mechanical projects
                 <span className="ml-1">→</span>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -151,13 +149,13 @@ const Home = () => {
                 Bring your creative vision to life with detailed sculptures,
                 figurines, and decorative pieces.
               </p>
-              <a
-                href="/portfolio"
+              <Link
+                to="/portfolio"
                 className="inline-flex items-center text-primary-600 hover:text-primary-800 font-medium text-sm sm:text-base"
               >
                 View artistic projects
                 <span className="ml-1">→</span>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -177,13 +175,13 @@ const Home = () => {
                 Practical innovations to solve everyday problems. From phone
                 stands to cable organizers and custom fixtures.
               </p>
-              <a
-                href="/portfolio"
+              <Link
+                to="/portfolio"
                 className="inline-flex items-center text-primary-600 hover:text-primary-800 font-medium text-sm sm:text-base"
               >
                 View gadget projects
                 <span className="ml-1">→</span> 
-              </a>
+              </Link>
             </div>
           </div>
         </div>
