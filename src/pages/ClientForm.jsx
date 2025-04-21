@@ -165,13 +165,13 @@ const ClientForm = () => {
               <div className="mt-6 flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 justify-center">
                 <Link
                   to="/"
-                  className="bg-emerald-600 text-white py-2 px-4 rounded text-center hover:bg-emerald-700 transition"
+                  className="bg-white text-emerald-600 py-2 px-4 rounded text-center hover:bg-gray-100 transition"
                 >
                   Go Back to Home
                 </Link>
                 <Link
                   to="/myrequests"
-                  className="bg-emerald-600 text-white py-2 px-4 rounded text-center hover:bg-emerald-700 transition"
+                  className="bg-white text-emerald-600 py-2 px-4 rounded text-center hover:bg-gray-100 transition"
                 >
                   Check your requests
                 </Link>
