@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom"; 
 import { useUser } from "../context/UserContext"; 
-
 
 function Navbar() {
   const location = useLocation();
@@ -26,7 +25,6 @@ function Navbar() {
           </span>
         </div>
 
-        
         <button
           className="md:hidden flex items-center p-2"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -52,8 +50,8 @@ function Navbar() {
 
         {/* Menu */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a
-            href="/"
+          <Link
+            to="/"
             className={`px-4 py-2 rounded-lg font-medium ${
               location.pathname === "/"
                 ? "bg-blue-50 text-blue-600"
@@ -61,9 +59,9 @@ function Navbar() {
             }`}
           >
             Home
-          </a>
-          <a
-            href="/portfolio"
+          </Link>
+          <Link
+            to="/portfolio"
             className={`px-4 py-2 rounded-lg font-medium ${
               location.pathname === "/portfolio"
                 ? "bg-blue-50 text-blue-600"
@@ -71,9 +69,9 @@ function Navbar() {
             }`}
           >
             Portfolio
-          </a>
-          <a
-            href="/client-form"
+          </Link>
+          <Link
+            to="/client-form"
             className={`px-4 py-2 rounded-lg font-medium ${
               location.pathname === "/client-form"
                 ? "bg-blue-50 text-blue-600"
@@ -81,19 +79,19 @@ function Navbar() {
             }`}
           >
             Submit a Brief
-          </a>
+          </Link>
           {isLoggedIn && (
-  <a
-    href="/MyRequests"
-    className={`px-4 py-2 rounded-lg font-medium ${
-      location.pathname === "/my-requests"
-        ? "bg-blue-50 text-blue-600"
-        : "text-gray-700 hover:text-blue-600"
-    }`}
-  >
-    My Requests
-  </a>
-)}
+            <Link
+              to="/MyRequests"
+              className={`px-4 py-2 rounded-lg font-medium ${
+                location.pathname === "/myrequests"
+                  ? "bg-blue-50 text-blue-600"
+                  : "text-gray-700 hover:text-blue-600"
+              }`}
+            >
+              My Requests
+            </Link>
+          )}
         </nav>
       </div>
 
@@ -101,8 +99,8 @@ function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-gray-200">
           <div className="container mx-auto px-4 py-2 space-y-2">
-            <a
-              href="/"
+            <Link
+              to="/"
               className={`block py-3 px-4 rounded-lg font-medium ${
                 location.pathname === "/"
                   ? "bg-blue-50 text-blue-600"
@@ -111,9 +109,9 @@ function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               Home
-            </a>
-            <a
-              href="/portfolio"
+            </Link>
+            <Link
+              to="/portfolio"
               className={`block py-3 px-4 rounded-lg font-medium ${
                 location.pathname === "/portfolio"
                   ? "bg-blue-50 text-blue-600"
@@ -122,9 +120,9 @@ function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               Portfolio
-            </a>
-            <a
-              href="/client-form"
+            </Link>
+            <Link
+              to="/client-form"
               className={`block py-3 px-4 rounded-lg font-medium ${
                 location.pathname === "/client-form"
                   ? "bg-blue-50 text-blue-600"
@@ -133,19 +131,19 @@ function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               Submit a Brief
-            </a>
+            </Link>
             {isLoggedIn && (
-  <a
-    href="/MyRequests"
-    className={`px-4 py-2 rounded-lg font-medium ${
-      location.pathname === "/MyRequests"
-        ? "bg-blue-50 text-blue-600"
-        : "text-gray-700 hover:text-blue-600"
-    }`}
-  >
-    My Requests
-  </a>
-)}
+              <Link
+                to="/MyRequests"
+                className={`px-4 py-2 rounded-lg font-medium ${
+                  location.pathname === "/MyRequests"
+                    ? "bg-blue-50 text-blue-600"
+                    : "text-gray-700 hover:text-blue-600"
+                }`}
+              >
+                My Requests
+              </Link>
+            )}
           </div>
         </div>
       )}

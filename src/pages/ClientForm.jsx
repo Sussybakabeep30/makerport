@@ -125,7 +125,7 @@ const ClientForm = () => {
                 type="date"
                 value={form.deadline}
                 onChange={handleChange}
-                className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500 transition"
+                className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500 transition appearance-none"
                 required
               />
             </div>

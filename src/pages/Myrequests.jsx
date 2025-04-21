@@ -9,12 +9,12 @@ const MyRequests = () => {
   const { isLoggedIn, email } = useUser();
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [authorized, setAuthorized] = useState(true); // new flag
+  const [authorized, setAuthorized] = useState(true); 
 
   useEffect(() => {
     const fetchProjects = async () => {
       if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        logout(); // optional
+        logout(); 
         setAuthorized(false);
         setLoading(false);
         return;
@@ -24,13 +24,13 @@ const MyRequests = () => {
       try {
         const data = await getProjects(email);
         if (data.length === 0) {
-          setAuthorized(false); // Email is not in the system
+          setAuthorized(false); 
         } else {
           setProjects(data);
         }
       } catch (err) {
         console.error("Failed to fetch projects:", err);
-        setAuthorized(false); // Treat API failure as not authorized
+        setAuthorized(false); 
       } finally {
         setLoading(false);
       }
