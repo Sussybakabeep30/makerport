@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
@@ -19,31 +20,29 @@ const Footer = () => {
           </p>
         </div>
 
-        
         <div>
           <h3 className="text-sm font-semibold text-gray-900 mb-4">
             Quick Links
           </h3>
           <ul className="space-y-2">
             <li>
-              <a href="/" className="hover:text-blue-600 transition">
+              <Link to="/" className="hover:text-blue-600 transition">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/portfolio" className="hover:text-blue-600 transition">
+              <Link to="/portfolio" className="hover:text-blue-600 transition">
                 Portfolio
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/client-form" className="hover:text-blue-600 transition">
+              <Link to="/client-form" className="hover:text-blue-600 transition">
                 Submit a Brief
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
 
-        {/* Connect */}
         <div>
           <h3 className="text-sm font-semibold text-gray-900 mb-4">
             Connect with the creator
