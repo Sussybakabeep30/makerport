@@ -40,7 +40,7 @@ function Navbar() {
             <a
               href="/client-form"
               className={`px-4 py-2 rounded-lg font-medium ${
-                location.pathname === '/submit' ? 'bg-blue-50 text-blue-600' : 'text-gray-700 hover:text-blue-600'
+                location.pathname === '/client-form' ? 'bg-blue-50 text-blue-600' : 'text-gray-700 hover:text-blue-600'
               }`}
             >
               Submit a Brief

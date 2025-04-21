@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { postBrief } from '../api/api';
+import Navbar from '../components/Navbar'
+import Foot from '../components/Footer'
+
 
 const ClientForm = () => {
   const [form, setForm] = useState({
-    name:'', email:'', type:'Prototype', desc:'', deadline:'', budget:''
+    name: '', email: '', type: 'Prototype', desc: '', deadline: '', budget: ''
   });
   const [msg, setMsg] = useState('');
 
-  const handleChange = e =>
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
   const validate = () => {
     const { name, email, desc, deadline } = form;
@@ -22,7 +24,6 @@ const ClientForm = () => {
     e.preventDefault();
     if (!validate()) return alert('Please fill correctly.');
     await postBrief(form);
-    // also save locally
     const key = `briefs_${form.email}`;
     const prev = JSON.parse(localStorage.getItem(key)) || [];
     localStorage.setItem(key, JSON.stringify([...prev, form]));
@@ -30,64 +31,101 @@ const ClientForm = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-8">
-      <h2 className="text-2xl mb-4">Submit Your 3D Print Request</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {msg && <p className="text-green-600">{msg}</p>}
-        <input
-          name="name"
-          placeholder="Full Name"
-          value={form.name}
-          onChange={handleChange}
-          className="w-full border p-2 rounded"
-        />
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-          className="w-full border p-2 rounded"
-        />
-        <select
-          name="type"
-          value={form.type}
-          onChange={handleChange}
-          className="w-full border p-2 rounded"
-        >
-          <option>Prototype</option>
-          <option>Miniature</option>
-          <option>Custom Gadget</option>
-          <option>Repair Part</option>
-        </select>
-        <textarea
-          name="desc"
-          placeholder="Project Description (at least 20 chars)"
-          value={form.desc}
-          onChange={handleChange}
-          className="w-full border p-2 rounded h-24"
-        />
-        <input
-          name="deadline"
-          type="date"
-          value={form.deadline}
-          onChange={handleChange}
-          className="w-full border p-2 rounded"
-        />
-        <input
-          name="budget"
-          placeholder="Budget (optional)"
-          value={form.budget}
-          onChange={handleChange}
-          className="w-full border p-2 rounded"
-        />
-        <button
-          type="submit"
-          className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition"
-        >
-          Submit Request
-        </button>
-      </form>
+    <div className="w-full">
+      {/* Header Section */}
+      <Navbar/>
+      <div className="w-full bg-gradient-to-r from-emerald-800 to-teal-700 text-white py-16 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h1 className="text-4xl font-bold mb-4">Submit a Brief</h1>
+          <p className="text-lg leading-relaxed">
+            Tell me about your project and I'll bring your ideas to life through 3D printing. 
+            Fill in the form below to get started.
+          </p>
+        </div>
+      </div>
+
+      {/* Form Section - centered */}
+      <div className="w-full px-4 pb-4">
+        <div className="max-w-2xl mx-auto mt-8 bg-white shadow-lg rounded-lg p-8">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {msg && <p className="text-green-600">{msg}</p>}
+
+            {/* Name & Email */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <input
+                name="name"
+                placeholder="Your name"
+                value={form.name}
+                onChange={handleChange}
+                className="w-full border border-gray-300 p-3 rounded"
+                required
+              />
+              <input
+                name="email"
+                type="email"
+                placeholder="Email"
+                value={form.email}
+                onChange={handleChange}
+                className="w-full border border-gray-300 p-3 rounded"
+                required
+              />
+            </div>
+
+            {/* Project Type & Deadline */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <select
+                name="type"
+                value={form.type}
+                onChange={handleChange}
+                className="w-full border border-gray-300 p-3 rounded"
+                required
+              >
+                <option value="">Select a project type</option>
+                <option>Prototype</option>
+                <option>Miniature</option>
+                <option>Custom Gadget</option>
+                <option>Repair Part</option>
+              </select>
+              <input
+                name="deadline"
+                type="date"
+                value={form.deadline}
+                onChange={handleChange}
+                className="w-full border border-gray-300 p-3 rounded"
+                required
+              />
+            </div>
+
+            {/* Description */}
+            <textarea
+              name="desc"
+              placeholder="Project Description (at least 20 characters)"
+              value={form.desc}
+              onChange={handleChange}
+              className="w-full border border-gray-300 p-3 rounded h-32"
+              required
+            />
+
+            {/* Budget */}
+            <input
+              name="budget"
+              placeholder="Budget (optional)"
+              value={form.budget}
+              onChange={handleChange}
+              className="w-full border border-gray-300 p-3 rounded"
+            />
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className="w-full bg-emerald-600 text-white py-3 rounded font-semibold hover:bg-emerald-700 transition"
+            >
+              Submit Request
+            </button>
+          </form>
+        </div>
+      </div>
+      <Foot/>
     </div>
   );
 };
