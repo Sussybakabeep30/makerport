@@ -3,6 +3,9 @@ import { useUser } from "../context/UserContext";
 import LoginBox from "../components/LoginBox";
 import Foot from "../components/Footer";
 import Navbar from "../components/Navbar";
+import gadget from "../assets/gadget.png";
+import headphone from "../assets/Screenshot 2025-04-21 184750.png";
+import art from "../assets/artistic.jpg"
 
 
 const Home = () => {
@@ -109,7 +112,7 @@ const Home = () => {
           <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:shadow-xl">
             <div className="h-40 sm:h-48 bg-gray-200 overflow-hidden">
               <img
-                src="src\assets\gadget.png"
+                src= {gadget}
                 alt="Mechanical Parts"
                 className="w-full h-full object-cover"
               />
@@ -135,7 +138,7 @@ const Home = () => {
           <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:shadow-xl">
             <div className="h-40 sm:h-48 bg-gray-200 overflow-hidden">
               <img
-                src="src\assets\artistic.jpg"
+                src={art}
                 alt="Artistic Models"
                 className="w-full h-full object-cover"
               />
@@ -161,7 +164,7 @@ const Home = () => {
           <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:shadow-xl">
             <div className="h-40 sm:h-48 bg-gray-200 overflow-hidden">
               <img
-                src="src\assets\Screenshot 2025-04-21 184750.png"
+                src={headphone}
                 alt="Gadgets"
                 className="w-full h-full object-cover"
               />
