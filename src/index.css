@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(50, 53, 232, 0.87);
+  background-color: whitesmoke;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* Updated button styles to match your portfolio filter */
+button {
+  border-radius: 9999px; /* full rounded corners */
+  border: 1px solid #e5e7eb; /* light gray border */
+  padding: 0.5rem 1.5rem; /* py-2 px-6 equivalent */
+  font-size: 1rem;
+  font-weight: 600; /* semibold */
+  font-family: inherit;
+  background-color: #ffffff;
+  color: #111827; /* dark gray text */
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background-color: #f3f4f6; /* light gray hover */
+  border-color: #d1d5db;
+}
+
+button:focus,
+button:focus-visible {
+  outline: none;
+}
+
+/* Primary button variant */
+button.primary {
+  background-color: #2563eb; /* blue-600 */
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+button.primary:hover {
+  background-color: #1d4ed8; /* blue-700 */
+  border-color: #f9fafb;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  
+}
