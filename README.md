@@ -24,3 +24,9 @@ https://makerport.vercel.app/
 - **Backend (Mock API)**: [MockAPI](https://mockapi.io/)
 - **Styling**: *(Mention your styling method here - e.g., CSS Modules, Tailwind, Bootstrap, etc.)*
 
+## How it works:
+
+- **Log in to the website**
+- **View the projects in the portfolio section or give you own requests in submit your brief section**
+- **View your requests in my requests section or keep a track or contact via whatsapp**
+
