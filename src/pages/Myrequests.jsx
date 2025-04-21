@@ -13,7 +13,14 @@ const MyRequests = () => {
 
   useEffect(() => {
     const fetchProjects = async () => {
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        logout(); // optional
+        setAuthorized(false);
+        setLoading(false);
+        return;
+      }
       setLoading(true);
+      
       try {
         const data = await getProjects(email);
         if (data.length === 0) {

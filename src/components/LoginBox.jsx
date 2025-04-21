@@ -6,10 +6,13 @@ const LoginBox = () => {
   const [input, setInput] = useState("");
 
   const handleLogin = () => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  //regex 
-    if (re.test(input)) login(input);
+    const cleanEmail = input.trim().toLowerCase(); 
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+    if (re.test(cleanEmail)) login(cleanEmail);
     else alert("Please enter a valid email.");
   };
+  
 
   return (
     <div className="p-4 border rounded max-w-sm mx-auto w-full">

@@ -168,30 +168,12 @@ const ClientForm = () => {
                   Go Back to Home
                 </button>
                 <button
-                  onClick={() => {
-                    const formattedMessage = `
-Hello! I'd like to check the status of my 3D printing project:
----
-Name: ${form.name}
-Email: ${form.email}
-Project Type: ${form.type}
-Description: ${form.desc}
-Deadline: ${form.deadline}
-Budget: ${form.budget || "Not specified"}
----
-Could you please provide an update?
-                    `.trim();
-                    const encodedMessage = encodeURIComponent(formattedMessage);
-                    const phoneNumber = "+918169891989";
-                    window.open(
-                      `https://wa.me/${phoneNumber}?text=${encodedMessage}`,
-                      "_blank"  //sends wsap message to the number for the creation
-                    );
-                  }}
-                  className="bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700 transition"
+                  onClick={() => (window.location.href = "/MyRequests")}
+                  className="bg-emerald-600 text-white py-2 px-4 rounded hover:bg-emerald-700 transition"
                 >
-                  Check status via WhatsApp
+                  Check your requests
                 </button>
+                
               </div>
             )}
           </form>
