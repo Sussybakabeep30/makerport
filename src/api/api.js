@@ -1,4 +1,4 @@
-const BASE = 'https://mockapi.io/projects'; // replace with your MockAPI endpoint
+const BASE = 'https://68062528ca467c15be6b564d.mockapi.io/briefs'; // replace with your MockAPI endpoint
 
 export const fetchBriefs = () =>
   fetch(BASE).then(res => res.json());

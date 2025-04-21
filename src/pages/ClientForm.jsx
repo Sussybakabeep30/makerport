@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { postBrief } from '../api/api';
 import Navbar from '../components/Navbar'
 import Foot from '../components/Footer'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const ClientForm = () => {
@@ -13,12 +15,27 @@ const ClientForm = () => {
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
   const validate = () => {
-    const { name, email, desc, deadline } = form;
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!name || !re.test(email) || desc.length < 20) return false;
-    if (new Date(deadline) <= new Date()) return false;
-    return true;
-  };
+  const { name, email, desc, deadline } = form;
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  console.log("Name:", name);
+  console.log("Email:", email);
+  console.log("Description Length:", desc.length);
+  console.log("Deadline:", deadline);
+  
+  if (!name || !re.test(email) || desc.length < 20) {
+    console.log("Validation failed for Name, Email, or Description");
+    return false;
+  }
+  
+  if (new Date(deadline) <= new Date()) {
+    console.log("Validation failed for Deadline");
+    return false;
+  }
+  
+  return true;
+};
+
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -27,7 +44,7 @@ const ClientForm = () => {
     const key = `briefs_${form.email}`;
     const prev = JSON.parse(localStorage.getItem(key)) || [];
     localStorage.setItem(key, JSON.stringify([...prev, form]));
-    setMsg('Request submitted!');
+    toast.success('Request submitted!');
   };
 
   return (
@@ -45,7 +62,7 @@ const ClientForm = () => {
       </div>
 
       {/* Form Section - centered */}
-      <div className="w-full px-4 pb-4">
+      <div className="w-full px-4 pb-6">
         <div className="max-w-2xl mx-auto mt-8 bg-white shadow-lg rounded-lg p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             {msg && <p className="text-green-600">{msg}</p>}
@@ -72,6 +89,7 @@ const ClientForm = () => {
             </div>
 
             {/* Project Type & Deadline */}
+            <small className="text-xs text-gray-400 mt-1">Please select a project type & a future date for your project deadline.</small>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <select
                 name="type"
@@ -86,6 +104,8 @@ const ClientForm = () => {
                 <option>Custom Gadget</option>
                 <option>Repair Part</option>
               </select>
+              
+              
               <input
                 name="deadline"
                 type="date"
@@ -94,6 +114,7 @@ const ClientForm = () => {
                 className="w-full border border-gray-300 p-3 rounded"
                 required
               />
+              
             </div>
 
             {/* Description */}
@@ -122,6 +143,8 @@ const ClientForm = () => {
             >
               Submit Request
             </button>
+            <ToastContainer position="top-center" />
+
           </form>
         </div>
       </div>
