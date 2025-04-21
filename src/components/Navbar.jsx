@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useUser } from "../context/UserContext"; 
+
 
 function Navbar() {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isLoggedIn } = useUser();
 
   return (
     <header className="w-full bg-white shadow-sm">
@@ -79,6 +82,18 @@ function Navbar() {
           >
             Submit a Brief
           </a>
+          {isLoggedIn && (
+  <a
+    href="/MyRequests"
+    className={`px-4 py-2 rounded-lg font-medium ${
+      location.pathname === "/my-requests"
+        ? "bg-blue-50 text-blue-600"
+        : "text-gray-700 hover:text-blue-600"
+    }`}
+  >
+    My Requests
+  </a>
+)}
         </nav>
       </div>
 
@@ -119,6 +134,18 @@ function Navbar() {
             >
               Submit a Brief
             </a>
+            {isLoggedIn && (
+  <a
+    href="/MyRequests"
+    className={`px-4 py-2 rounded-lg font-medium ${
+      location.pathname === "/MyRequests"
+        ? "bg-blue-50 text-blue-600"
+        : "text-gray-700 hover:text-blue-600"
+    }`}
+  >
+    My Requests
+  </a>
+)}
           </div>
         </div>
       )}
