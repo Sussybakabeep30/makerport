@@ -11,7 +11,7 @@ const Home = () => {
   const { isLoggedIn, email, logout } = useUser();
 
   return (
-    <div className="animate-fade-in">
+    <div className="w-full max-h-screen">
       <Navbar />
 
       <section className="w-full bg-blue-600 min-h-[400px] sm:min-h-[500px] md:min-h-[600px]">
