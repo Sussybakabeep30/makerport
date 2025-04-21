@@ -2,15 +2,14 @@ import React from "react";
 import { useUser } from "../context/UserContext";
 import LoginBox from "../components/LoginBox";
 import Foot from "../components/Footer";
-import Navbar from "../components/Navbar"
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   const { isLoggedIn, email, logout } = useUser();
 
   return (
     <div className="animate-fade-in">
-      <Navbar/>
-      
+      <Navbar />
 
       <section className="w-full bg-blue-600 min-h-[600px]">
         <div className="bg-gradient-to-br from-primary-800 to-primary-900 text-white">
@@ -57,12 +56,28 @@ const Home = () => {
                       <span className="font-semibold">{email}</span>
                     </p>
                     <div className="space-y-4">
-                      <a
-                        href="/projects"
-                        className="block w-full px-4 py-2 bg-primary-600 text-white font-medium rounded-md hover:bg-primary-700 transition-colors"
+                      <button
+                        onClick={() => {
+                          // Format the message for WhatsApp
+                          const formattedMessage = `Hello! I'd like to check the status of my 3D printing project.`;
+
+                          
+                          const encodedMessage =
+                            encodeURIComponent(formattedMessage);
+
+                          
+                          const phoneNumber = "+918169891989"; // WhatsApp number with country code
+
+                          //redirection
+                          window.open(
+                            `https://wa.me/${phoneNumber}?text=${encodedMessage}`,
+                            "_blank"
+                          );
+                        }}
+                        className="block w-full px-4 py-2 bg-teal-600 text-white font-medium rounded-md hover:bg-teal-700 transition-colors"
                       >
-                        View My Submitted briefs
-                      </a>
+                        Check status via WhatsApp
+                      </button>
                       <button
                         onClick={logout}
                         className="block w-full px-4 py-2 bg-gray-200 text-gray-800 font-medium rounded-md hover:bg-gray-300 transition-colors"
@@ -169,7 +184,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Foot/>
+      <Foot />
     </div>
   );
 };

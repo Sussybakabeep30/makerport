@@ -1,8 +1,9 @@
 const BASE = 'https://68062528ca467c15be6b564d.mockapi.io/briefs'; // Replace with your MockAPI endpoint
 
-// GET all projects
-export const getProjects = () =>
-  fetch(BASE).then(res => res.json());
+export const getProjects = (userEmail) => {
+  const url = userEmail ? `${BASE}?email=${userEmail}` : BASE;
+  return fetch(url).then(res => res.json());
+};
 
 // POST a new project
 export const postBrief = (data) =>
@@ -13,13 +14,13 @@ export const postBrief = (data) =>
   }).then(res => res.json());
 
 // DELETE a project
-export const deleteProject = (id) =>
-  fetch(`${BASE}/${id}`, { method: 'DELETE' });
+export const deleteProject = (userEmail, projectId) =>
+  fetch(`${BASE}/${projectId}`, { method: 'DELETE' });
 
 // UPDATE a project status
-export const updateProjectStatus = (id, updatedData) =>
-  fetch(`${BASE}/${id}`, {
+export const updateProjectStatus = (userEmail, projectId, newStatus) =>
+  fetch(`${BASE}/${projectId}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(updatedData)
+    body: JSON.stringify({ status: newStatus })
   }).then(res => res.json());

@@ -7,10 +7,17 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const ClientForm = () => {
   const [form, setForm] = useState({
-    name: '', email: '', type: 'Prototype', desc: '', deadline: '', budget: ''
+    name: '', 
+    email: '', 
+    type: 'Prototype', 
+    desc: '', 
+    deadline: '', 
+    budget: '',
+    status: 'Pending',
+    createdAt: new Date().toISOString()
   });
   const [msg, setMsg] = useState('');
-  const [submitted, setSubmitted] = useState(false); // New state for submission status
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -32,12 +39,50 @@ const ClientForm = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     if (!validate()) return alert('Please fill correctly.');
-    await postBrief(form);
-    const key = `briefs_${form.email}`;
-    const prev = JSON.parse(localStorage.getItem(key)) || [];
-    localStorage.setItem(key, JSON.stringify([...prev, form]));
-    toast.success('Request submitted!');
-    setSubmitted(true); // Set submission to true after successful submit
+    
+    // Add generated ID and ensure timestamps
+    const formData = {
+      ...form,
+      id: Math.random().toString(36).substr(2, 9), // Generate a random ID
+      createdAt: form.createdAt || new Date().toISOString(),
+      status: 'Pending'
+    };
+    
+    try {
+      const response = await postBrief(formData);
+      console.log("Project submitted to API:", response);
+      
+      // Save to localStorage with the email as key
+      const key = `briefs_${form.email}`;
+      let prev = [];
+      try {
+        prev = JSON.parse(localStorage.getItem(key)) || [];
+      } catch (err) {
+        console.error("Error parsing localStorage:", err);
+      }
+      
+      // Add the new project to localStorage
+      localStorage.setItem(key, JSON.stringify([...prev, formData]));
+      console.log(`Project saved to localStorage key: ${key}`);
+      
+      toast.success('Request submitted successfully!');
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error('Failed to submit to API. Saving locally only.');
+      
+      // Still save to localStorage as backup
+      const key = `briefs_${form.email}`;
+      let prev = [];
+      try {
+        prev = JSON.parse(localStorage.getItem(key)) || [];
+      } catch (err) {
+        console.error("Error parsing localStorage:", err);
+      }
+      localStorage.setItem(key, JSON.stringify([...prev, formData]));
+      
+      setSubmitted(true);
+    }
   };
 
   return (
@@ -145,14 +190,36 @@ const ClientForm = () => {
                   Go Back to Home
                 </button>
                 <button
-                  onClick={() => window.location.href = '/projects'}
+                  onClick={() => {
+                    // Format the message for WhatsApp
+                    const formattedMessage = `
+Hello! I'd like to check the status of my 3D printing project:
+---
+Name: ${form.name}
+Email: ${form.email}
+Project Type: ${form.type}
+Description: ${form.desc}
+Deadline: ${form.deadline}
+Budget: ${form.budget || "Not specified"}
+---
+Could you please provide an update?
+                    `.trim();
+                    
+                    // Encode the message for URL
+                    const encodedMessage = encodeURIComponent(formattedMessage);
+                    
+                    // Your WhatsApp number - replace with your actual number including country code
+                    const phoneNumber = '1234567890'; // Replace with your actual WhatsApp number
+                    
+                    // Construct WhatsApp URL and redirect
+                    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+                  }}
                   className="bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700"
                 >
-                  View Submitted Briefs
+                  Check status via WhatsApp
                 </button>
               </div>
             )}
-
           </form>
         </div>
       </div>

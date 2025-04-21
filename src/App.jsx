@@ -9,7 +9,6 @@ import Loading from './components/Loading';
 const Home       = lazy(() => import('./pages/Home'));
 const Portfolio  = lazy(() => import('./pages/Portfolio'));
 const ClientForm = lazy(() => import('./pages/ClientForm'));
-const Tracker    = lazy(() => import('./pages/ProjectTracker'));
 
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/client-form" element={<ClientForm />} />
-            <Route path="/projects" element={<Tracker />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </Suspense>
