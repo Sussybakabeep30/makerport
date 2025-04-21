@@ -61,7 +61,7 @@ const Home = () => {
                         href="/projects"
                         className="block w-full px-4 py-2 bg-primary-600 text-white font-medium rounded-md hover:bg-primary-700 transition-colors"
                       >
-                        View My Projects
+                        View My Submitted briefs
                       </a>
                       <button
                         onClick={logout}

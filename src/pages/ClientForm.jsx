@@ -5,37 +5,29 @@ import Foot from '../components/Footer'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 const ClientForm = () => {
   const [form, setForm] = useState({
     name: '', email: '', type: 'Prototype', desc: '', deadline: '', budget: ''
   });
   const [msg, setMsg] = useState('');
+  const [submitted, setSubmitted] = useState(false); // New state for submission status
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
   const validate = () => {
-  const { name, email, desc, deadline } = form;
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
-  console.log("Name:", name);
-  console.log("Email:", email);
-  console.log("Description Length:", desc.length);
-  console.log("Deadline:", deadline);
-  
-  if (!name || !re.test(email) || desc.length < 20) {
-    console.log("Validation failed for Name, Email, or Description");
-    return false;
-  }
-  
-  if (new Date(deadline) <= new Date()) {
-    console.log("Validation failed for Deadline");
-    return false;
-  }
-  
-  return true;
-};
+    const { name, email, desc, deadline } = form;
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    if (!name || !re.test(email) || desc.length < 20) {
+      return false;
+    }
+
+    if (new Date(deadline) <= new Date()) {
+      return false;
+    }
+
+    return true;
+  };
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -45,12 +37,13 @@ const ClientForm = () => {
     const prev = JSON.parse(localStorage.getItem(key)) || [];
     localStorage.setItem(key, JSON.stringify([...prev, form]));
     toast.success('Request submitted!');
+    setSubmitted(true); // Set submission to true after successful submit
   };
 
   return (
     <div className="w-full">
       {/* Header Section */}
-      <Navbar/>
+      <Navbar />
       <div className="w-full bg-gradient-to-r from-emerald-800 to-teal-700 text-white py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl font-bold mb-4">Submit a Brief</h1>
@@ -104,8 +97,6 @@ const ClientForm = () => {
                 <option>Custom Gadget</option>
                 <option>Repair Part</option>
               </select>
-              
-              
               <input
                 name="deadline"
                 type="date"
@@ -114,7 +105,6 @@ const ClientForm = () => {
                 className="w-full border border-gray-300 p-3 rounded"
                 required
               />
-              
             </div>
 
             {/* Description */}
@@ -145,10 +135,28 @@ const ClientForm = () => {
             </button>
             <ToastContainer position="top-center" />
 
+            {/* Conditionally render buttons after submission */}
+            {submitted && (
+              <div className="mt-6 space-x-4 flex justify-center">
+                <button
+                  onClick={() => window.location.href = '/'}
+                  className="bg-emerald-600 text-white py-2 px-4 rounded hover:bg-emerald-700"
+                >
+                  Go Back to Home
+                </button>
+                <button
+                  onClick={() => window.location.href = '/projects'}
+                  className="bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700"
+                >
+                  View Submitted Briefs
+                </button>
+              </div>
+            )}
+
           </form>
         </div>
       </div>
-      <Foot/>
+      <Foot />
     </div>
   );
 };
