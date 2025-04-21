@@ -4,6 +4,7 @@ import LoginBox from "../components/LoginBox";
 import Foot from "../components/Footer";
 import Navbar from "../components/Navbar";
 
+
 const Home = () => {
   const { isLoggedIn, email, logout } = useUser();
 
