@@ -34,19 +34,6 @@ Welcome to **MakerPort**, a personalized 3D printing project management app! Bui
 
 ---
 
-## 🧪 How to Run Locally
-
-\`\`\`bash
-git clone https://github.com/sussybakabeep30/makerport.git
-cd makerport
-npm install
-npm run dev  # or npm start depending on your setup
-\`\`\`
-
-Ensure you are connected to the internet — the app fetches and stores mock project data via MockAPI.
-
----
-
 ## 🧠 Extras & Innovation
 
 - ✨ Smart email validation + localStorage login persistence  
