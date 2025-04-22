@@ -34,22 +34,6 @@ Welcome to **MakerPort**, a personalized 3D printing project management app! Bui
 
 ---
 
-## 📂 Folder Structure (Simplified)
-
-\`\`\`
-src/
-│
-├── api/              # API interaction logic
-├── assets/           # Images and visuals
-├── components/       # Reusable components like Navbar, LoginBox, Loading, Footer
-├── context/          # UserContext for auth state
-├── pages/            # Route-based components (Home, Portfolio, etc.)
-├── App.jsx           # Root component with routing
-
-\`\`\`
-
----
-
 ## 🧪 How to Run Locally
 
 \`\`\`bash
