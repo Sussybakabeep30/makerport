@@ -1,6 +1,6 @@
 # 🖨️ MakerPort – 3D Printing Project Portal
 
-Welcome to **MakerPort**, a personalized 3D printing project management app! Built with React, this platform allows clients to submit custom print requests and explore my diverse portfolio of past works — from artistic models to mechanical gadgets.
+Welcome to **MakerPort**, a personalized 3D printing project management app! Built with React, this platform allows clients to submit custom print requests and explore my diverse portfolio of past works — from artistic models to mechanical gadgets. Check it out here: https://makerport-npcmas2f2-vav354s-projects.vercel.app/
 
 ## 🌐 Live Site
 
